@@ -1,0 +1,162 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #ffe6f2;
+  color: #333;
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR (só no topo, não fixa) */
+nav {
+  width: 100%;
+  background: #ffb6c1;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+nav .logo img {
+  height: 70px; /* logo pequeno */
+  border-radius: 50%;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background: white;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* MENU TOGGLE (mobile) */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* SECTIONS */
+section {
+  min-height: 100vh;
+  padding: 80px 20px 50px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section h1 {
+  font-size: 2.5rem;
+  color: #e75480;
+  margin-bottom: 30px;
+}
+
+.foto-principal img {
+  width: 300px;
+  border-radius: 12px;
+  border: 3px solid #ffb6c1;
+  margin-bottom: 30px;
+  transition: transform 0.5s;
+}
+
+.foto-principal img:hover {
+  transform: scale(1.05);
+}
+
+/* Galeria de 3 fotos */
+.galeria {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.galeria img {
+  width: 200px;
+  border-radius: 10px;
+  border: 2px solid #ffb6c1;
+  transition: transform 0.4s;
+}
+
+.galeria img:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+/* Texto final */
+.texto-final {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: auto;
+  margin-top: 20px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #ffb6c1;
+    flex-direction: column;
+    gap: 20px;
+    width: 200px;
+    padding: 20px;
+    display: none;
+    border-radius: 0 0 0 10px;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .galeria img {
+    width: 80%;
+  }
+}
